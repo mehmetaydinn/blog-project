@@ -38,7 +38,9 @@ const CommentSection = ({ postId }) => {
   const loadComments = () => {
     const allComments = getLocalStorage('blog_app_comments') || [];
     const postComments = allComments.filter(comment => comment.postId === postId);
-    setComments(postComments);
+    // En son yapılan yorumun üstte görünmesi için sıralama
+    const sortedComments = postComments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setComments(sortedComments);
   };
 
   const handleSubmit = (e) => {
@@ -59,8 +61,8 @@ const CommentSection = ({ postId }) => {
     const updatedComments = [...allComments, comment];
     setLocalStorage('blog_app_comments', updatedComments);
     
-    // State'i güncelle
-    setComments([...comments, comment]);
+    // State'i güncelle - yeni yorumu en üste ekle
+    setComments([comment, ...comments]);
     setNewComment('');
   };
   
