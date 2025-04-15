@@ -2,6 +2,10 @@
 
 Bu proje, React ve Tailwind CSS kullanılarak geliştirilmiş, tamamen client-side çalışan interaktif bir blog uygulamasıdır. Kullanıcıların kayıt olabildiği, giriş yapabildiği, blog yazıları ekleyebildiği, düzenleyebildiği, silebileceği ve yorum yapabileceği tam fonksiyonel bir web uygulamasıdır.
 
+## 🔗 Canlı Demo
+
+Uygulamanın canlı demosu: [https://mehmet-aydin-blog-app.netlify.app/](https://mehmet-aydin-blog-app.netlify.app/)
+
 ## 🚀 Özellikler
 
 - 🔐 **Kullanıcı Yönetimi**
