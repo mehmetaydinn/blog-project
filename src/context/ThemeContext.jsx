@@ -11,8 +11,8 @@ export const ThemeProvider = ({ children }) => {
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    // Tarayıcı karanlık mod tercihini kontrol et
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Varsayılan olarak light tema
+    return false;
   });
 
   // Tema değiştiğinde HTML sınıfını güncelle

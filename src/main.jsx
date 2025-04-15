@@ -13,15 +13,17 @@ import './services/storage';
   // localStorage'daki tema tercihini kontrol et
   const savedTheme = localStorage.getItem('blog_theme');
   
-  // Tema tercihi yoksa tarayıcı tercihini kullan
+  // Tema tercihi yoksa varsayılan olarak light tema uygula
   if (!savedTheme) {
-    // Tarayıcı karanlık modu tercih ediyorsa
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
-    }
+    // Varsayılan olarak light tema
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('blog_theme', 'light');
   } else if (savedTheme === 'dark') {
     // Kullanıcı karanlık modu seçmiş
     document.documentElement.classList.add('dark');
+  } else {
+    // Light tema
+    document.documentElement.classList.remove('dark');
   }
 })();
 

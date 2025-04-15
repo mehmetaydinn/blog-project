@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/common/Layout';
@@ -11,6 +11,7 @@ import EditPost from './pages/EditPost';
 import MyPosts from './pages/MyPosts';
 import Profile from './pages/Profile';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import AuthRedirect from './components/auth/AuthRedirect';
 
 function App() {
   return (
@@ -20,8 +21,22 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route 
+                path="/login" 
+                element={
+                  <AuthRedirect>
+                    <Login />
+                  </AuthRedirect>
+                } 
+              />
+              <Route 
+                path="/register" 
+                element={
+                  <AuthRedirect>
+                    <Register />
+                  </AuthRedirect>
+                } 
+              />
               <Route path="/post/:id" element={<PostDetail />} />
               <Route
                 path="/post/create"
